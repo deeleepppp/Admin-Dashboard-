@@ -186,8 +186,8 @@ const handlePageChange = (newPage) => {
                 }}><MdDelete/></button>
                 <div className="flex flex-col items-center">
                   <h2 className="text-xl font-bold">{staff.name}</h2>
-                  <p className="text-lg text-gray-500">{staff.email}</p>
-                  <p className="text-lg text-gray-500">{staff.role}</p>
+                  <p className="text-lg text-gray-700">{staff.role}</p>
+                  <p className="text-sm text-gray-500">{staff.email}</p>
                   <p className="mt-2 text-sm text-gray-700">
                     Shifts This Week: {staff.shiftsThisWeek}
                   </p>

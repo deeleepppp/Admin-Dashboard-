@@ -14,6 +14,7 @@ import Logout from '../components/layout/Logout';
 import Room from '../components/layout/Room';
 import RoomTypes from '../components/layout/RoomTypes';
 import Setting from '../components/layout/Setting';
+import NotFound from '../components/layout/PageNotFound';
 
 const AppRouter = () => {
   return (
@@ -28,6 +29,7 @@ const AppRouter = () => {
           <Route path="room" element={<Room />} />
           <Route path="roomtypes" element={<RoomTypes />} />
           <Route path="setting" element={<Setting />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 

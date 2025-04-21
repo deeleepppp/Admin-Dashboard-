@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Logout = () => {
+  const navigate = useNavigate()
   const createLogOutAlert = () => {
     Swal.fire({
       title: "Do you want to logOut??",
@@ -12,6 +14,7 @@ const Logout = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("LogOut", "", "success");
+        navigate('/')
       } else if (result.isDenied) {
       }
     });
