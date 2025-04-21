@@ -12,9 +12,9 @@ const navItems = [
   { name: 'Logout', to: '/logout', icon: <LogOut className="w-5 h-5" /> },
 ];
 
-const Sidebar = ({dark}) => {
+const Sidebar = () => {
   return (
-    <div className={`sidebar-hidden-2 h-screen w-64 ${dark?'bg-white text-gray-800':'bg-gray-900 text-white'} flex flex-col px-6 py-10 space-y-8 shadow-md`}>
+    <div className={`sidebar-hidden-2 h-screen w-64 bg-gray-900 text-white flex flex-col px-6 py-10 space-y-8 shadow-md`}>
       <h2 className="sidebar-hidden text-2xl font-bold text-center mb-6">Admin Panel</h2>
       <nav className="flex flex-col space-y-4">
         {navItems.map((item) => (

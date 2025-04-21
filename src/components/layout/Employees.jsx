@@ -69,6 +69,27 @@ const handlePageChange = (newPage) => {
               <p className="text-red-500 text-sm">{errors.name.message}</p>
             )}
           </div>
+          <div className="mb-4">
+            <label className="block font-medium">Employee Email</label>
+            <input
+            type="email"
+              {...register("email", {
+                required: "This is required.",
+                maxLength: {
+                  value: 50,
+                  message: "This input exceeds maxLength.",
+                },
+                minLength: {
+                  value: 2,
+                  message: "Type more",
+                },
+              })}
+              className="w-full border px-3 py-2 rounded"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
+          </div>
           <div className="mb-4 flex gap-4">
             <div className="flex-1">
               <label className="block font-medium">Rating</label>
@@ -89,6 +110,27 @@ const handlePageChange = (newPage) => {
               />
               {errors.rating && (
                 <p className="text-red-500 text-sm">{errors.rating.message}</p>
+              )}
+            </div>
+            <div className="flex-1">
+              <label className="block font-medium">Experience</label>
+              <input
+                type="number"
+                {...register("experience", {
+                  required: "This is required.",
+                  min: {
+                    value: 0,
+                    message: "Minimum value is 0",
+                  },
+                  max: {
+                    value: 10,
+                    message: "Maximum value is 10",
+                  },
+                })}
+                className="w-full border px-3 py-2 rounded"
+              />
+              {errors.experience && (
+                <p className="text-red-500 text-sm">{errors.experience.message}</p>
               )}
             </div>
             <div className="flex-1">
@@ -144,9 +186,13 @@ const handlePageChange = (newPage) => {
                 }}><MdDelete/></button>
                 <div className="flex flex-col items-center">
                   <h2 className="text-xl font-bold">{staff.name}</h2>
+                  <p className="text-lg text-gray-500">{staff.email}</p>
                   <p className="text-lg text-gray-500">{staff.role}</p>
                   <p className="mt-2 text-sm text-gray-700">
                     Shifts This Week: {staff.shiftsThisWeek}
+                  </p>
+                  <p className="mt-2 text-sm text-gray-700">
+                   total experience: {staff.experience}
                   </p>
                   <p className="mt-2 text-sm text-gray-700">
                     Rating: {staff.rating}

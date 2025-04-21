@@ -44,36 +44,50 @@ const deshboardData =  {
         "name": "Rachel Green",
         "role": "Front Desk",
         "shiftsThisWeek": 5,
-        "rating": 4.9
+        "rating": 4.9,
+        'experience':5,
+        'email':'employee1@gmail.com'
       },
       {
         "name": "Monica Geller",
         "role": "Housekeeping",
         "shiftsThisWeek": 6,
-        "rating": 4.8
+        "rating": 4.8,
+        'experience':2,
+        'email':'employee2@gmail.com'
+
       },
       {
         "name": "Chandler Bing",
         "role": "Manager",
         "shiftsThisWeek": 4,
-        "rating": 5.0
+        "rating": 5.0,
+        'experience':2,
+        'email':'employee3@gmail.com'
+
       }
     ],
     "notifications": [
       {
         "message": "Room 102 requires cleaning",
         "time": "2025-04-16T10:30:00Z",
-        "priority": "high"
+        "priority": "high",
+        "color":"bg-red-100 text-red-700"
+        
       },
       {
         "message": "Booking #BK20250416002 is awaiting confirmation",
         "time": "2025-04-16T09:15:00Z",
-        "priority": "medium"
+        "priority": "medium",
+        "color":"bg-yellow-100 text-yellow-700"
+
       },
       {
         "message": "Staff meeting scheduled at 5 PM",
         "time": "2025-04-16T08:00:00Z",
-        "priority": "low"
+        "priority": "low",
+        "color":"bg-green-100 text-green-700"
+
       }
     ]
   }
