@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@media only screen and (max-width: 600px) {
+   .sidebar-hidden{
+    display: none;
+   }
+  }
+  @media only screen and (max-width: 600px) {
+    .sidebar-hidden-2{
+     width: fit-content;
+    }
+    .icons{
+        margin-top: 6vh;
+    }
+   }
+*::-webkit-scrollbar{
+  display: none;
+}
