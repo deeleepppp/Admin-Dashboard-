@@ -2,27 +2,34 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import { Outlet } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+
 
 const App = () => {
+  const{user} = useAuth()
   return (
+    <>
+    
     <div className={`flex h-screen bg-white text-gray-800 `}>
-     
-      <div className='bg-white text-gray-800'>
-         <Sidebar/>
-      </div>
-     
-
+     {user? <div className='bg-white text-gray-800'>
+        <Sidebar/>
+     </div>:''}
+    
+    
      <div className="flex flex-col flex-1 min-w-0">
+   <Navbar />
+       <main className="flex-1 overflow-auto ">
+         <div className={`relative bg-white text-gray-800   p-6 h-full w-full`} >
+           <Outlet />
+         </div>
+       </main>
+     </div>
+   </div>
+    
+    
+    
+    </>
    
-       <Navbar />
-
-        <main className="flex-1 overflow-auto ">
-          <div className={`relative bg-white text-gray-800   p-6 h-full w-full`} >
-            <Outlet />
-          </div>
-        </main>
-      </div>
-    </div>
   );
 };
 

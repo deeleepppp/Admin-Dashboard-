@@ -15,21 +15,30 @@ import Room from '../components/layout/Room';
 import RoomTypes from '../components/layout/RoomTypes';
 import Setting from '../components/layout/Setting';
 import NotFound from '../components/layout/PageNotFound';
+import Login from '../components/layout/Login';
+import Register from '../components/layout/Register';
+import User from '../components/layout/User';
+import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => {
   return (
 
       <Routes>
-       
         <Route path="/" element={<App />}>
-          <Route index element={<Deshboard />} />
-          <Route path="employees" element={<Employees />} />
-          <Route path="invoices" element={<Invoices />} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="room" element={<Room />} />
-          <Route path="roomtypes" element={<RoomTypes />} />
-          <Route path="setting" element={<Setting />} />
+
+          <Route index element={
+           <PrivateRoute> <Deshboard /></PrivateRoute>
+            } />
+          <Route path="employees" element={ <PrivateRoute> <Employees /></PrivateRoute>} />
+          <Route path="invoices" element={ <PrivateRoute> <Invoices /></PrivateRoute>} />
+          <Route path="logout" element={ <PrivateRoute> <Logout /> </PrivateRoute> } />
+          <Route path="room" element={ <PrivateRoute> <Room /> </PrivateRoute> } />
+          <Route path="roomtypes" element={ <PrivateRoute> <RoomTypes /> </PrivateRoute> } />
+          <Route path="setting" element={ <PrivateRoute> <Setting /> </PrivateRoute> } />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/user" element={ <PrivateRoute> <User /> </PrivateRoute> } />
         </Route>
       </Routes>
 

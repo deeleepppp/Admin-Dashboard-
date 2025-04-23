@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const RoomTypes = () => {
   const {
@@ -49,13 +50,27 @@ const RoomTypes = () => {
     setShowForm(false);
     reset();
   };
-
+  const deleteAlert = (id)=>{
+      Swal.fire({
+           title: "Do you want to delete??",
+           showDenyButton: true,
+           showCancelButton: true,
+           confirmButtonText: "YES",
+           denyButtonText: `NO`
+         }).then((result) => {
+           if (result.isConfirmed) {
+            setRoomTypesData(roomTypesData.filter((_, index) => index !== id));
+           } else if (result.isDenied) {
+           }
+         });
+   }
   useEffect(() => {
     localStorage.setItem("rooms", JSON.stringify(roomTypesData));
   }, [roomTypesData]);
 
   const handleDelete = (id) => {
-    setRoomTypesData(roomTypesData.filter((_, index) => index !== id));
+    deleteAlert(id)
+    
   };
 
   const handleEdit = (index) => {
@@ -154,14 +169,24 @@ const RoomTypes = () => {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block font-medium">Color (Tailwind class)</label>
-            <input
-              {...register("color", { required: true })}
+            <label className="block font-medium">Color</label>
+            <select
+              {...register("color", { required: "Color is required." })}
               className="w-full border px-3 py-2 rounded"
-              placeholder="e.g. bg-purple-500"
-            />
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select a color
+              </option>
+              <option value="bg-blue-500">Blue</option>
+              <option value="bg-green-500">Green</option>
+              <option value="bg-red-500">Red</option>
+              <option value="bg-yellow-500">Yellow</option>
+              <option value="bg-purple-500">Purple</option>
+              <option value="bg-pink-500">Pink</option>
+            </select>
             {errors.color && (
-              <p className="text-red-500 text-sm">Color is required</p>
+              <p className="text-red-500 text-sm">{errors.color.message}</p>
             )}
           </div>
           <button

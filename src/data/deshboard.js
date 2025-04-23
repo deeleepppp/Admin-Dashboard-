@@ -46,7 +46,8 @@ const deshboardData =  {
         "shiftsThisWeek": 5,
         "rating": 4.9,
         'experience':5,
-        'email':'employee1@gmail.com'
+        'email':'employee1@gmail.com',
+        'color':'bg-green-500'
       },
       {
         "name": "Monica Geller",
@@ -54,7 +55,9 @@ const deshboardData =  {
         "shiftsThisWeek": 6,
         "rating": 4.8,
         'experience':2,
-        'email':'employee2@gmail.com'
+        'email':'employee2@gmail.com',
+        'color':'bg-red-500'
+
 
       },
       {
@@ -63,7 +66,9 @@ const deshboardData =  {
         "shiftsThisWeek": 4,
         "rating": 5.0,
         'experience':2,
-        'email':'employee3@gmail.com'
+        'email':'employee3@gmail.com',
+        'color':'bg-blue-500'
+
 
       }
     ],
@@ -89,6 +94,8 @@ const deshboardData =  {
         "color":"bg-green-100 text-green-700"
 
       }
+      
     ]
+    
   }
   export default deshboardData
